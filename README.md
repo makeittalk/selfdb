@@ -1,4 +1,4 @@
 selfdb
 ======
 
-A db which has the schemas self-contained
+A db which has the schemas self-contained in Collection on the same db.

@@ -6,17 +6,19 @@
 
   {{> Fields}}  
 
-  {{> Schemas}}
+  {{> Schemas collection="Fields" id="insertFieldForm" type="insert"}}
+
+  {{> Collections}}
 
 </body>
 
-<template name="hello">
+<template name="hello1">
   <button>Click Me</button>
   <p>You've pressed the button {{counter}} times.</p>
 </template>
 
 
-<template name="Fields">
+<template name="Fields1">
   <h1>Fields</h1>
   <p>
   	<ul>
@@ -27,7 +29,7 @@
   </p>
 </template>
 
-<template name="Schemas">
+<template name="Schemas1">
   <h1>Schemas</h1>
   <p>
   	<ul>
@@ -35,5 +37,29 @@
   	    <li>{{name}}:{{fields}}</li>
   	  {{/each}}
     </ul>
+    <p>Attributes: {{collection}} {{id}} {{type}}</p>
+  </p>
+</template>
+
+
+<template name="Collections">
+  <h1>Collections</h1>
+  <p>
+    <ul>
+      {{#each collections}}
+        <li>
+          <span>{{name}}</span>
+          <span>
+            <ul>
+              {{#each content}}  
+              <li>{{name}}</li>
+              {{/each}}
+            </ul>
+          </span>
+        </li>
+
+      {{/each}}
+    </ul>
+    <p>Attributes: {{collection}} {{id}} {{type}}</p>
   </p>
 </template>
