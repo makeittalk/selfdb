@@ -1,0 +1,39 @@
+<head>
+  <title>meteor-fields</title>
+</head>
+
+<body>
+
+  {{> Fields}}  
+
+  {{> Schemas}}
+
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+
+<template name="Fields">
+  <h1>Fields</h1>
+  <p>
+  	<ul>
+  	  {{#each fields}}
+  	    <li>{{name}},{{type}},{{label}}</li>
+  	  {{/each}}
+    </ul>
+  </p>
+</template>
+
+<template name="Schemas">
+  <h1>Schemas</h1>
+  <p>
+  	<ul>
+  	  {{#each schemas}}
+  	    <li>{{name}}:{{fields}}</li>
+  	  {{/each}}
+    </ul>
+  </p>
+</template>
