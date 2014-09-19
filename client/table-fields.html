@@ -1,0 +1,14 @@
+<template name="tablefields">
+  <h1>Table of Fields</h1>
+  <p>
+  	<table>
+  		{{#each fields}}
+  		<tr>
+  			{{#each field}}
+            <td>{{this}}</td>
+            {{/each}}    
+  	    </tr>
+  	    {{/each}}
+  	</table>
+  </p>
+</template>
