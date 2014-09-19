@@ -46,7 +46,7 @@
           <span>
             <ul>
               {{#each content}}  
-              <li>{{name}}</li>
+              <li>{{this}}</li>
               {{/each}}
             </ul>
           </span>
@@ -213,4 +213,9 @@
   {{> UI.dynamic template="Schemas" collection="Fields" id="insertFieldForm" type="insert"}}
 
   {{> UI.dynamic template="Collections"}}
+
+   <h1>Fields</h1>
+  {{> quickForm collection="Fields" id="insertFieldForm" type="update"}}
+  <h1>Schemas</h1>
+  {{> quickForm collection="Schemas" id="insertSchemasForm" type="insert"}}
 </template>
