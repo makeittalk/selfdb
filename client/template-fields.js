@@ -17,3 +17,7 @@ Template["Fields"] = new Template("Template.Fields", (function() {
 Template.Fields.fields = function () {
     return Fields.find({}, {sort: {name: 1}});
 };
+
+Template.fields.fields = function () {
+    return Fields.find({}, {sort: {name: 1}});
+};

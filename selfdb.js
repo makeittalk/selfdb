@@ -63,7 +63,15 @@ Schemas.allow({
 
 
 if (Meteor.isClient) {
+Router.map(function () {
+  this.route('hello', {
+    path: '/' // match the root path
+  });
 
+  this.route('Samples');
+
+  this.route('fields');
+});
 }
 
 if (Meteor.isServer) {
