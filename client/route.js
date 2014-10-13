@@ -15,19 +15,23 @@ Router.map(function () {
   this.route('about');
   this.route('contact');
 
-  this.route('/collections/:name',
-  	function(){
-  		console.log("Routing to collections.");
+  this.route('collections',{
+    path : '/collections/:name',
 
-  		var params = this.params;
-  		var collname = params.name;
+    data : function(){ 
+      var params = this.params;
+      var collname = params.name;
+      return {collection: collname}
+    },
 
-  		console.log("Collections name: "+collname);
-  		this.render('dashboard',
-  		{
-  			collection: collname
-  		});
-  	});
+    action: function(){
+      console.log("Routing to collections.");
 
+      var params = this.params;
+      var collname = params.name;
+
+      console.log("Collections name: "+collname);
+      this.render('coll');
+    }
+  });
 });
-
