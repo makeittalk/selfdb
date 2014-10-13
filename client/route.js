@@ -11,5 +11,23 @@ Router.map(function () {
     path: '/tf' // match the root path
   });
 
+  this.route('dashboard');
+  this.route('about');
+  this.route('contact');
+
+  this.route('/collections/:name',
+  	function(){
+  		console.log("Routing to collections.");
+
+  		var params = this.params;
+  		var collname = params.name;
+
+  		console.log("Collections name: "+collname);
+  		this.render('dashboard',
+  		{
+  			collection: collname
+  		});
+  	});
+
 });
 

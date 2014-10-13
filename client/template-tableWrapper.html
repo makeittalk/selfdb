@@ -1,0 +1,27 @@
+<template name="tableWrapper">
+  <h2>{{this.collection}}</h2>
+  <h3>Collection exists: {{exists}}</h3>
+  <h3>Model exists: {{existsModel}}</h3>
+  {{#if existsModel}}
+  <div class="table-responsive"> 
+  <table class="table table-bordered table-condensed table-hover">
+    <thead>
+      <tr>
+        {{#each schemaKeys}}
+        <th>{{this}}</th>
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each modelRows}}
+      <tr>        
+        {{#each fields}}
+        <td>{{this}}</td>
+        {{/each}}
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+  {{/if}}
+</template>

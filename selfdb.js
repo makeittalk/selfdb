@@ -6,15 +6,15 @@ Fields = new Mongo.Collection("fields");
 Collections.Fields = Fields;
 Model.Fields = new SimpleSchema({
   name: {
-    type: String,
+    type: "String",
     label: "Name"
   },
   type: {
-    type: String,
+    type: "String",
     label: "type"
   },
   label: {
-    type: String,
+    type: "String",
     label: "label"
   }
 });
@@ -36,15 +36,15 @@ Schemas = new Mongo.Collection("schemas");
 Collections.Schemas = Schemas;
 Model.Schemas = new SimpleSchema({
   name: {
-    type: String,
+    type: "String",
     label: "Name"
   },
   fields: {
-    type: [String],
+    type: "[String]",
     label: "Fields"
   },
   createdAt: {
-    type: Date,
+    type: "Date",
     label: "Created at"
   }
 });
