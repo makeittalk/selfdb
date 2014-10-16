@@ -30,7 +30,7 @@ Router.map(function () {
       var params = this.params;
       var collname = params.name;
 
-      console.log("Collections name: "+collname);
+      console.log('Collections name: '+collname);
       this.render('coll');
     }
   });

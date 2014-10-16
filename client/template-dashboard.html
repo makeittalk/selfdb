@@ -50,15 +50,20 @@
 </template>
 
 <template name="dashboard">
+  {{loadSchemas}}
+
   {{>navbar}}
 
   {{>tableWrapper collection="Schemas" footer="Most recent data available."}}
 
-    {{>tableWrapper collection="Fields" footer="Most recent data available."}}
+  {{>tableWrapper collection="Fields" footer="Most recent data available."}}
 
 </template>
 
 <template name="coll">
+
+  {{loadSchemas}}
+
   {{>navbar}}
 
   {{>tableWrapper}}

@@ -1,7 +1,7 @@
 Meteor.publish("fields", function () {
-  return Fields.find({}, {});
+  return _Fields.find({}, {});
 });
 
 Meteor.publish("schemas", function () {
-  return Schemas.find({}, {});
+  return _Schemas.find({}, {});
 });

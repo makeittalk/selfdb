@@ -1,8 +1,10 @@
 <template name="tableWrapper">
+  <div class="jumbotron">
   <h2>{{this.collection}}</h2>
   <h3>Collection exists: {{exists}}</h3>
   <h3>Model exists: {{existsModel}}</h3>
   {{#if existsModel}}
+  {{/if}}
   <div class="table-responsive"> 
   <table class="table table-bordered table-condensed table-hover">
     <thead>
@@ -22,6 +24,8 @@
       {{/each}}
     </tbody>
   </table>
-</div>
-  {{/if}}
+  </div>
+  </div>
+{{#if existsModel}}
+{{/if}}
 </template>
