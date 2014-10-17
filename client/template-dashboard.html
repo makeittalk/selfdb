@@ -20,9 +20,40 @@
                 	<a href="about">About</a></li>
                 <li><a href="contact">Contact</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+              {{> loginButtons }}
+            </ul>
         </div>
     </div>
   </nav>
+</template>
+
+<template name="loading">
+  {{>navbar}}
+   <div class="container-fluid">
+     <div class="jumbotron">
+       <h1>SelfDB.</h1>
+       <p>Please wait while the information is being loaded...</p>
+    </div>
+  </div>
+</template>
+
+
+<template name="login">
+  {{>navbar}}
+   <div class="container-fluid">
+     <div class="jumbotron">
+       <h1>SelfDB.</h1>
+       <p>Please login.</p>
+           <form id="login-form" action="action">
+      <div>
+        <input type="email" id="login-email" />
+        <input type="password" id="login-password" />
+        <input type="submit" id="login-button" value="Sign in" />
+     </div>
+   </form> 
+    </div>
+  </div>
 </template>
 
 <template name="about">
@@ -50,14 +81,16 @@
 </template>
 
 <template name="dashboard">
-  {{loadSchemas}}
-
   {{>navbar}}
-
-  {{>tableWrapper collection="Schemas" footer="Most recent data available."}}
-
-  {{>tableWrapper collection="Fields" footer="Most recent data available."}}
-
+  {{#if isReady}}
+    {{>loading}}
+  {{else}} 
+    {{loadSchemas}}
+    {{>navbar}}
+    {{>tableWrapper collection="Schemas"}}
+    {{>tableWrapper collection="Fields"}}
+    {{>tableWrapper collection="PersonalSchemas"}}    
+  {{/if}}
 </template>
 
 <template name="coll">
@@ -68,3 +101,4 @@
 
   {{>tableWrapper}}
 </template>
+

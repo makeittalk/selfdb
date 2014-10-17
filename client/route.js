@@ -1,5 +1,18 @@
+Router.configure({
+  loadingTemplate : 'loading',
+  onBeforeAction : function (pause) {
+            if (!Meteor.user()) {
+            // render the login template but keep the url in the browser the same
+            this.render('login');
+        }
+      }
+});
+
 Router.map(function () {
-  this.route('hello', {
+
+
+
+  this.route('login', {
     path: '/' // match the root path
   });
 
@@ -11,7 +24,35 @@ Router.map(function () {
     path: '/tf' // match the root path
   });
 
-  this.route('dashboard');
+  this.route('dashboard',{
+    waitOn: function(){
+      Session.set("dashboard.waitOn",true);
+      console.log("Started to wait on Subscription.");
+      var _handleSchema = Meteor.subscribe("Schemas", function(){
+        Session.set("dashboard.waitOn.schemas",false);
+        console.log("Subscription for Schemas ready.");
+      });
+      var _handleFields = Meteor.subscribe("Fields", function(){
+        Session.set("dashboard.waitOn.fields",false);
+        console.log("Subscription Fields ready.");
+      });
+
+
+
+      readyFunction = function(){
+        var res = (_handleFields.ready()&&_handleSchema.ready());
+        if (res){
+          Session.set("dashboard.waitOn",false);
+        }
+        console.log("Calling readyFunction: " + res);
+        return res;
+      };
+
+      //return [_handleSchema,_handleFields];
+      return {ready : readyFunction};
+    }
+  });
+  
   this.route('about');
   this.route('contact');
 

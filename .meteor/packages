@@ -12,3 +12,5 @@ accounts-password
 ian:accounts-ui-bootstrap-3
 ian:bootstrap-3
 iron:router
+accounts-base
+
