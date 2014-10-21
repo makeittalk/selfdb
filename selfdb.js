@@ -247,6 +247,10 @@ if (Meteor.isClient){
     isReady : function(){
       console.log("Calling isReady.");
       return Session.get("dashboard.waitOn");
+    },
+    schemas : function(){
+      console.log('Schemas called.');
+      return Object.getOwnPropertyNames(SelfDB.Collections);
     }
   });
 }

@@ -87,9 +87,9 @@
   {{else}} 
     {{loadSchemas}}
     {{>navbar}}
-    {{>tableWrapper collection="Schemas"}}
-    {{>tableWrapper collection="Fields"}}
-    {{>tableWrapper collection="PersonalSchemas"}}    
+    {{#each schemas}}
+    {{>tableWrapper collection=this}}
+    {{/each}}
   {{/if}}
 </template>
 
